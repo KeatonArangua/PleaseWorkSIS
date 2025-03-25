@@ -5,6 +5,11 @@ import java.util.Scanner;
 
 public class StudentArrayMaker
 	{
+		static ArrayList<Student> studentList = new ArrayList<Student>();
+		public static void main(String[] args)
+		{
+			
+		}
 
 		public static void armain()
 			{
@@ -12,15 +17,16 @@ public class StudentArrayMaker
 					{
 				Scanner myFile = new Scanner(new File("StudentList.txt"));
 				String studFile = myFile.next();
-				ArrayList<Student> studentList = new ArrayList<Student>();
 				while(myFile.hasNext())
 					{
-						String nextLn = myFile.nextLine();
-//						String[] studInfoMaster = "la";
-						
-//						studentList.add(new Student(fn, ln, fp, fpg, sp, spg, tp, tpg));
+					String nextLn = myFile.nextLine();
+					String[] studInfoMaster = nextLn.split(" ");
+					studentList.add(new Student(studInfoMaster[0], studInfoMaster[1], studInfoMaster[2], studInfoMaster[3], studInfoMaster[4], studInfoMaster[5], studInfoMaster[6], studInfoMaster[7]));
 					}
-				System.out.println(studentList);
+				for(Student S: studentList)
+					{
+						System.out.println(S.getFirstname());
+					}
 					}
 				catch(NullPointerException x)
 					{
@@ -36,6 +42,4 @@ public class StudentArrayMaker
 					z.printStackTrace();
 					}
 			}
-			}
-
 	}

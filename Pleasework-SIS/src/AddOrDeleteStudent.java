@@ -36,23 +36,7 @@ public class AddOrDeleteStudent
 		{
 			try
 				{
-			Scanner myFile = new Scanner(new File("StudentList.txt"));
-			String studFile = myFile.next();
-			ArrayList<Student> studentList = new ArrayList<Student>();
-			while(myFile.hasNext())
-				{
-					String fn = myFile.next();
-					String ln = myFile.next();
-					String fp = myFile.next();
-					String fpg = myFile.next();
-					String sp = myFile.next();
-					String spg = myFile.next();
-					String tp = myFile.next();
-					String tpg = myFile.next();
-					
-					studentList.add(new Student(fn, ln, fp, fpg, sp, spg, tp, tpg));
-				}
-			System.out.println(studentList);
+					StudentArrayMaker.armain();
 				System.out.println("Please enter your student's fullname,"
 						+ " first period class, grade for first period,"
 						+ " second period class, grade for second period,"
@@ -60,16 +44,12 @@ public class AddOrDeleteStudent
 				Scanner studi = new Scanner(System.in);
 				String stud = studi.nextLine();
 				String[] studInfo = stud.split(" ");
-				studentList.add(new Student(studInfo[0], studInfo[1], studInfo[2], studInfo[3], studInfo[4], studInfo[5], studInfo[6], studInfo[7]));
-				System.out.println(studentList.getLast());
+				StudentArrayMaker.studentList.add(new Student(studInfo[0], studInfo[1], studInfo[2], studInfo[3], studInfo[4], studInfo[5], studInfo[6], studInfo[7]));
+				System.out.println(StudentArrayMaker.studentList.getLast().getFirstname());
 				}
 			catch(NullPointerException x)
 				{
 				System.out.println("No more students.");
-				}
-			catch(FileNotFoundException y)
-				{
-				System.out.println("No file found.");
 				}
 			catch(ArrayIndexOutOfBoundsException z)
 				{
