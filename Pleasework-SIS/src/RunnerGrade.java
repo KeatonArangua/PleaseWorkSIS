@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
-public class Runner
+public class RunnerGrade
 	{
-//hihdgweudgaweukdgu
 		public static void main (String args[])
 			{
 
@@ -17,7 +16,7 @@ public class Runner
 					{
 						System.out.println("Which grade would you like to change?");
 					}
-				if(number == 2)
+				else if(number == 2)
 					{
 						System.out.println("Which class would you like to change?");
 					}
