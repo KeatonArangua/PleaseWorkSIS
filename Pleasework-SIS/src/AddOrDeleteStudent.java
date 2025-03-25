@@ -3,6 +3,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 
 public class AddOrDeleteStudent
@@ -38,9 +41,18 @@ public class AddOrDeleteStudent
 			ArrayList<Student> studentList = new ArrayList<Student>();
 			while(myFile.hasNext())
 				{
-				String[] prevStud = studFile.split(" ");
-				studentList.add(new Student(prevStud[0], prevStud[1], prevStud[2], prevStud[3], prevStud[4], prevStud[5], prevStud[6], prevStud[7]));
+					String fn = myFile.next();
+					String ln = myFile.next();
+					String fp = myFile.next();
+					String fpg = myFile.next();
+					String sp = myFile.next();
+					String spg = myFile.next();
+					String tp = myFile.next();
+					String tpg = myFile.next();
+					
+					studentList.add(new Student(fn, ln, fp, fpg, sp, spg, tp, tpg));
 				}
+			System.out.println(studentList);
 				System.out.println("Please enter your student's fullname,"
 						+ " first period class, grade for first period,"
 						+ " second period class, grade for second period,"
@@ -49,7 +61,7 @@ public class AddOrDeleteStudent
 				String stud = studi.nextLine();
 				String[] studInfo = stud.split(" ");
 				studentList.add(new Student(studInfo[0], studInfo[1], studInfo[2], studInfo[3], studInfo[4], studInfo[5], studInfo[6], studInfo[7]));
-				System.out.println(studentList.size()-1);
+				System.out.println(studentList.getLast());
 				}
 			catch(NullPointerException x)
 				{
