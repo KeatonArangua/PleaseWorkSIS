@@ -45,22 +45,87 @@ public class AddOrDeleteStudent
 				String stud = studi.nextLine();
 				String[] studInfo = stud.split(" ");
 				StudentArrayMaker.studentList.add(new Student(studInfo[0], studInfo[1], studInfo[2], studInfo[3], studInfo[4], studInfo[5], studInfo[6], studInfo[7]));
-				System.out.println(StudentArrayMaker.studentList.getLast().getFirstname());
+				for(Student S: StudentArrayMaker.studentList)
+					{
+						System.out.print(S.getFirstname());
+						System.out.print(" " + S.getLastname());
+						System.out.print(" " + S.getPeriodone());
+						System.out.print(" " + S.getPeriodoneg());
+						System.out.print(" " + S.getPeriodTwo());
+						System.out.print(" " + S.getPeriodTwog());
+						System.out.print(" " + S.getPeriodThree());
+						System.out.print(" " + S.getPeriodThreeg());
+						System.out.println("");
+					}
 				}
 			catch(NullPointerException x)
 				{
-				System.out.println("No more students.");
+				System.out.println("No more students. Try again");
 				}
 			catch(ArrayIndexOutOfBoundsException z)
 				{
-				System.out.println("Out of bounds.");
-				z.printStackTrace();
+				System.out.println("Out of bounds. Try again");
+				op1();
 				}
 		}
 		
 		public static void op2()
 		{
-			System.out.println("2");
+			StudentArrayMaker.armain();
+			try
+				{
+					System.out.println("What student would you like to delete?");
+					Scanner studr = new Scanner(System.in);
+					String stude = studr.nextLine();
+					for(Student S: StudentArrayMaker.studentList)
+						{
+							String fn = S.getFirstname();
+							String ln = S.getLastname();
+							String fp = S.getPeriodone();
+							String fpg = S.getPeriodoneg();
+							String sp = S.getPeriodTwo();
+							String spg = S.getPeriodTwog();
+							String tp = S.getPeriodThree();
+							String tpg = S.getPeriodThreeg();
+							if(StudentArrayMaker.studentList.contains(fn) && StudentArrayMaker.studentList.contains(ln))
+								{
+									System.out.println("Found the student!");
+									fn = "";
+									ln = "";
+									fp="";
+									fpg="";
+									sp="";
+									spg="";
+									tp="";
+									tpg="";
+									for(Student T: StudentArrayMaker.studentList)
+										{
+											System.out.print(T.getFirstname());
+											System.out.print(" " + T.getLastname());
+											System.out.print(" " + T.getPeriodone());
+											System.out.print(" " + T.getPeriodoneg());
+											System.out.print(" " + T.getPeriodTwo());
+											System.out.print(" " + T.getPeriodTwog());
+											System.out.print(" " + T.getPeriodThree());
+											System.out.print(" " + T.getPeriodThreeg());
+											System.out.println("");
+										}
+								}
+							else {
+								System.out.println("Student doesn't exist. Please enter a different student");
+								op2();
+							}
+						}
+				}
+			catch(NullPointerException x)
+				{
+					System.out.println("No more students. Try again");
+				}
+			catch(ArrayIndexOutOfBoundsException z)
+				{
+				System.out.println("Out of bounds. Try again");
+				op2();
+				}
 		}
 
 	}
