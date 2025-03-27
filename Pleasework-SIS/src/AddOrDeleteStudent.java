@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 
 public class AddOrDeleteStudent
 	{
+		static ArrayList<Student> studentList = new ArrayList<Student>();
 
 		public static void studentMain()
 			{
@@ -35,10 +36,11 @@ public class AddOrDeleteStudent
 				{
 			Scanner myFile = new Scanner(new File("StudentList.txt"));
 			String studFile = myFile.next();
-			ArrayList<Student> studentList = new ArrayList<Student>();
+			
 			while(myFile.hasNext())
 				{
 				String[] prevStud = studFile.split(" ");
+				//studentList.add(new Student("Keaton", "Arangua", "Biology", "A", "English", "A", "Religion", "A"));
 				studentList.add(new Student(prevStud[0], prevStud[1], prevStud[2], prevStud[3], prevStud[4], prevStud[5], prevStud[6], prevStud[7]));
 				}
 				System.out.println("Please enter your student's fullname,"
