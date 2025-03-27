@@ -16,7 +16,6 @@ public class StudentArrayMaker
 				try
 					{
 				Scanner myFile = new Scanner(new File("StudentList.txt"));
-				String studFile = myFile.next();
 				while(myFile.hasNext())
 					{
 					String nextLn = myFile.nextLine();

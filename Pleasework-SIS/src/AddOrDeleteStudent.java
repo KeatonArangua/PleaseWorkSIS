@@ -77,27 +77,14 @@ public class AddOrDeleteStudent
 					System.out.println("What student would you like to delete?");
 					Scanner studr = new Scanner(System.in);
 					String stude = studr.nextLine();
+					String[] studInfod = stude.split(" ");
 					for(Student S: StudentArrayMaker.studentList)
 						{
-							String fn = S.getFirstname();
-							String ln = S.getLastname();
-							String fp = S.getPeriodone();
-							String fpg = S.getPeriodoneg();
-							String sp = S.getPeriodTwo();
-							String spg = S.getPeriodTwog();
-							String tp = S.getPeriodThree();
-							String tpg = S.getPeriodThreeg();
-							if(StudentArrayMaker.studentList.contains(fn) && StudentArrayMaker.studentList.contains(ln))
+							studInfod[0]=S.getFirstname();
+							studInfod[1]=S.getLastname();
+							if(StudentArrayMaker.studentList.contains(studInfod[0]) && StudentArrayMaker.studentList.contains(studInfod[1]))
 								{
 									System.out.println("Found the student!");
-									fn = "";
-									ln = "";
-									fp="";
-									fpg="";
-									sp="";
-									spg="";
-									tp="";
-									tpg="";
 									for(Student T: StudentArrayMaker.studentList)
 										{
 											System.out.print(T.getFirstname());
@@ -120,6 +107,7 @@ public class AddOrDeleteStudent
 			catch(NullPointerException x)
 				{
 					System.out.println("No more students. Try again");
+					op2();
 				}
 			catch(ArrayIndexOutOfBoundsException z)
 				{
